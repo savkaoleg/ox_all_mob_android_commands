@@ -1,0 +1,12 @@
+mob.init();
+mob.setTimeout(6000);
+mob.click('//android.widget.TextView[@content-desc="App"]');
+let isExist = mob.isExist('//android.widget.TextView[@content-desc="Voice Recognition"]');
+let isVisible = mob.isVisible('//android.widget.TextView[@content-desc="Voice Recognition"]');
+assert.equal(isVisible && isExist, false);
+mob.pause(5000);
+mob.swipe('//android.widget.TextView[@content-desc="Service"]', 0, 200);
+mob.pause(5000);
+isExist = mob.isExist('//android.widget.TextView[@content-desc="Voice Recognition"]');
+isVisible = mob.isVisible('//android.widget.TextView[@content-desc="Voice Recognition"]');
+assert.equal(isVisible && isExist, true);
